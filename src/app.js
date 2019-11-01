@@ -1,16 +1,19 @@
 // Express is a function
 const express = require('express')
 const path = require('path')
+const hbs = require('hbs')
 
 const app = express()
 
 // Paths for Express config
 const publicDir = path.join(__dirname, '../public')
-const templatesDir = path.join(__dirname, '../templates')
+const viewsDir = path.join(__dirname, '../templates/views')
+const partialsDir = path.join(__dirname, '../templates/partials')
 
 // Setup handlebars engine and views location
 app.set('view engine', 'hbs')
-app.set('views', templatesDir)
+app.set('views', viewsDir)
+hbs.registerPartials(partialsDir)
 
 // Setup static directory to serve
 app.use(express.static(publicDir))
@@ -20,22 +23,22 @@ app.get('', (req, res) => {
     // We can pass in values (an object) to this template
     res.render('index', {
         title: 'Weather',
-        name: 'Andre Goncalves'
+        name: 'André Gonçalves'
     })
 })
 
 app.get('/about', (req, res) => {
     res.render('about', {
         title: 'About me',
-        name: 'Andre Goncalves'
+        name: 'André Gonçalves'
     })
 })
 
 app.get('/help', (req, res) => {
     res.render('help', {
         title: 'Help',
-        name: 'Andre Goncalves',
-        message: 'This is a temporary help message!!!'
+        message: 'This is a temporary help message!!!',
+        name: 'André Gonçalves'
     })
 })
 
@@ -44,6 +47,22 @@ app.get('/weather', (req, res) => {
         location: 'Belas, Lisboa, Portugal',
         forecast: 'Foggy, 20 degrees Celsius.'
     }])
+})
+
+app.get('/help/*', (req, res) => {
+    res.render('404_error', {
+        title: '404 Error',
+        errorMessage: 'Help article not found.',
+        name: 'André Gonçalves'
+    })
+})
+
+app.get('*', (req, res) => {
+    res.render('404_error', {
+        title: '404 Error',
+        errorMessage: 'Page not found',
+        name: 'André Gonçalves'
+    })
 })
 
 // Starts the server and makes it listen on a specific port
