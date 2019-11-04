@@ -9,7 +9,11 @@ const forecast = (longitude, latitude, callback) => {
         } else if (body.error) {
             callback(body.error, undefined)
         } else {
-            callback(undefined, `${body.daily.data[0].summary}\nCurrent temperature: ${body.currently.temperature} degrees Celsius.\nMinimum temperature: ${body.daily.data[0].temperatureMin} degrees Celsius.\nMaximum temperature: ${body.daily.data[0].temperatureMax} degrees Celsius.\nChance of precipitation: ${body.currently.precipProbability * 100.0}%.`)
+            callback(undefined, `${body.daily.data[0].summary}
+            Current temperature: ${Math.round(body.currently.temperature)}ºC.
+            Minimum temperature: ${Math.round(body.daily.data[0].temperatureMin)}ºC.
+            Maximum temperature: ${Math.round(body.daily.data[0].temperatureMax)}ºC.
+            Chance of precipitation: ${Math.round(body.currently.precipProbability * 100.0)}%.`)
         }
     })
 }
