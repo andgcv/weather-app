@@ -88,10 +88,6 @@ app.get('*', (req, res) => {
     })
 })
 
-// Starts the server and makes it listen on a specific port
-// 3000 is a common development port
-// The second parameter (optional) is a callback function that we can call when the server starts
-// The process of starting up a server is an asynchronous process
 app.listen(3000, () => {
     console.log('Server has started on port 3000')
 })
