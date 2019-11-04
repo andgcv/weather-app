@@ -9,11 +9,7 @@ const forecast = (longitude, latitude, callback) => {
         } else if (body.error) {
             callback(body.error, undefined)
         } else {
-            callback(undefined, `${body.daily.data[0].summary}
-            Current temperature: ${Math.round(body.currently.temperature)}ºC.
-            Minimum temperature: ${Math.round(body.daily.data[0].temperatureMin)}ºC.
-            Maximum temperature: ${Math.round(body.daily.data[0].temperatureMax)}ºC.
-            Chance of precipitation: ${Math.round(body.currently.precipProbability * 100.0)}%.`)
+            callback(undefined, `${body.daily.data[0].summary} The current temperature is ${Math.round(body.currently.temperature)}ºC, with a minimum and a maximum temperature of ${Math.round(body.daily.data[0].temperatureMin)}ºC and ${Math.round(body.daily.data[0].temperatureMax)}ºC, respectively. Currently, the chance of precipitation is approximately ${Math.round(body.currently.precipProbability * 100.0)}%.`)
         }
     })
 }
