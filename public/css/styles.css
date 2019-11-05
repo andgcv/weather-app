@@ -1,5 +1,12 @@
+:root {
+    --main-text-color: #212121;
+    --second-text-color: #484848;
+    --light-text-color: #8e8e8e;
+    --main-background-color: #3d5afe;
+    --second-background-color: #8187ff;
+}
+
 body {
-    color: #333333;
     font-family: arial;
     max-width: 650px;
     margin: 0 auto;
@@ -14,8 +21,8 @@ body {
 }
 
 footer {
-    color: #888888;
-    border-top: 1px solid #eeeeee;
+    color: var(--light-text-color);
+    border-top: 1px solid var(--second-background-color);
     margin-top: 16px;
     padding: 16px 0;
 }
@@ -26,29 +33,41 @@ header {
 }
 
 h1 {
+    color: var(--main-text-color);
     font-size: 64px;
     margin-bottom: 16px;
 }
 
+h2 {
+    color: var(--main-text-color);
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+p {
+    color: var(--second-text-color);
+}
+
 header a {
-    color: #888888;
+    color: var(--second-background-color);
     margin-right: 16px;
     text-decoration: none;
 }
 
 .about-profile {
-    width: 50%;
+    width: 20vw;
+    margin-top: 16px;
 }
 
 input {
-    border: 1px solid #cccccc;
+    border: 1px solid var(--second-background-color);
     padding: 10px;
 }
 
 button {
     cursor: pointer;
-    border: 1px solid #333333;
-    background: #333333;
+    border: 1px solid var(--second-background-color);
+    background: var(--main-background-color);
     color: white;
     padding: 10px;
 }
