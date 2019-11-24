@@ -1,8 +1,9 @@
 const request = require('request')
+const geoKey = process.env.GEO_KEY
 
 const geocode = (address, callback) => {
     // Use encodeURIComponent() incase someone searches for an address that contains special characters, like '?', which becomes '%3F' with this function
-    const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(address)}.json?limit=1&access_token=***REMOVED***`
+    const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(address)}.json?limit=1&access_token=${geoKey}`
 
     request({url, json: true}, (error, {body} = {}) => {
         if (error) {
