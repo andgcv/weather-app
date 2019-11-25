@@ -6,3 +6,8 @@ Simple web application to request forecast data on a given location. Uses Mapbox
 
 ### To run the application in development mode:
 > npm run dev
+
+Don't forget to create an .app.env file with your Dark Sky and MapBox Geolocation API key.
+*Format:*
+> export FORECAST_KEY = your_forecast_api_key
+> export GEO_KEY = your_geolocation_api_key
