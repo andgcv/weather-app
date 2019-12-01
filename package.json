@@ -10,7 +10,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node src/app.js",
-    "dev": "nodemon src/app.js -e js,hbs"
+    "dev": "env-cmd -f ./.app-env nodemon src/app.js -e js,hbs"
   },
   "keywords": [],
   "author": "André Gonçalves",
@@ -21,6 +21,7 @@
     "request": "^2.88.0"
   },
   "devDependencies": {
+    "env-cmd": "^10.0.1",
     "nodemon": "^1.19.4"
   }
 }

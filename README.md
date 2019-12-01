@@ -13,6 +13,6 @@ Simple web application to request forecast data on a given location. Uses Mapbox
 _Don't forget to create an **.app-env** file with your Dark Sky and MapBox Geolocation API key. Format:_
 
 ``` shell
-export FORECAST_KEY = your_forecast_api_key
-export GEO_KEY = your_geolocation_api_key
+FORECAST_KEY = your_forecast_api_key
+GEO_KEY = your_geolocation_api_key
 ```
